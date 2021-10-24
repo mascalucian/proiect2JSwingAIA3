@@ -32,7 +32,8 @@ public class app {
         adaugaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                clasee.add(new Clasa(textField1.getText(),textField2.getText(),textField3.getText(),textField4.getText()));
+                Integer nr=Integer.getInteger(textField4.getText());
+                clasee.add(new Clasa(textField1.getText(),textField2.getText(),textField3.getText(),nr));
                 textField1.setText("");
                 textField2.setText("");
                 textField3.setText("");

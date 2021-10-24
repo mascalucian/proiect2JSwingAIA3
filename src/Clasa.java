@@ -5,11 +5,11 @@ public class Clasa {
     private String nrelevi;
     private int index;
 
-    public Clasa(String clasa,String LITERA,String SPECIALIZARE,String nrelevi){
+    public Clasa(String clasa,String LITERA,String SPECIALIZARE,Integer nrelevi){
         this.clasa=clasa;
         this.LITERA=LITERA;
         this.SPECIALIZARE=SPECIALIZARE;
-        this.nrelevi=nrelevi;
+        this.nrelevi=nrelevi.toString();
     }
 
     public String getClasa(){
