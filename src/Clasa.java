@@ -24,5 +24,7 @@ public class Clasa {
     public String getNrelevi(){
         return nrelevi;
     }
+    public void setClasa(String clasa) {this.clasa=clasa;}
+    public void setNrelevi(String nrelevi) {this.nrelevi=nrelevi;}
 
 }
