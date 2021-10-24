@@ -44,7 +44,10 @@ public class app {
                 String nrelevi= clasee.get(clasee.size()-1).getNrelevi();
                 mesaj.setText("Clasa "+clasa+litera+" a fost adaugata cu succes.");
                 System.out.println(clasa+litera);
-                textArea1.setText(textArea1.getText()+"\r\n"+clasee.size()+". "+clasa+litera+" - Specializarea: "+specializare+", avand un numar de "+nrelevi+" elevi");
+                StringBuffer sb = new StringBuffer();
+                sb.append(textArea1.getText());
+                sb.append("\r\n"+clasee.size()+". "+clasa+litera+" - Specializarea: "+specializare+", avand un numar de "+nrelevi+" elevi");
+                textArea1.setText(String.valueOf(sb));
             }
         });
     }
