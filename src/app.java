@@ -32,23 +32,41 @@ public class app {
         adaugaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Integer nr=Integer.getInteger(textField4.getText());
-                clasee.add(new Clasa(textField1.getText(),textField2.getText(),textField3.getText(),nr));
-                textField1.setText("");
-                textField2.setText("");
-                textField3.setText("");
-                textField4.setText("");
-                String clasa= clasee.get(clasee.size()-1).getClasa();
-                String litera= clasee.get(clasee.size()-1).getLitera();
-                String specializare= clasee.get(clasee.size()-1).getSpecializare();
-                String nrelevi= clasee.get(clasee.size()-1).getNrelevi();
-                mesaj.setText("Clasa "+clasa+litera+" a fost adaugata cu succes.");
-                System.out.println(clasa+litera);
-                StringBuffer sb = new StringBuffer();
-                sb.append(textArea1.getText());
-                sb.append("\r\n"+clasee.size()+". "+clasa+litera+" - Specializarea: "+specializare+", avand un numar de "+nrelevi+" elevi");
-                textArea1.setText(String.valueOf(sb));
+                boolean isNumeNumeric=isNumeric(textField1.getText());
+                boolean isNreleviNumeric=isNumeric(textField4.getText());
+
+                if(isNumeNumeric==false) {mesaj.setText("Eroare: Numarul clasei nu poate contine litere.");}
+                else if (isNreleviNumeric==false) {mesaj.setText("Eroare: Numarul de elevi nu poate contine litere.");}
+                else {
+                    Integer nr = Integer.getInteger(textField4.getText());
+                    clasee.add(new Clasa(textField1.getText(), textField2.getText(), textField3.getText(), nr));
+                    textField1.setText("");
+                    textField2.setText("");
+                    textField3.setText("");
+                    textField4.setText("");
+                    String clasa = clasee.get(clasee.size() - 1).getClasa();
+                    String litera = clasee.get(clasee.size() - 1).getLitera();
+                    String specializare = clasee.get(clasee.size() - 1).getSpecializare();
+                    String nrelevi = clasee.get(clasee.size() - 1).getNrelevi();
+                    mesaj.setText("Clasa " + clasa + litera + " a fost adaugata cu succes.");
+                    System.out.println(clasa + litera);
+                    StringBuffer sb = new StringBuffer();
+                    sb.append(textArea1.getText());
+                    sb.append("\r\n" + clasee.size() + ". " + clasa + litera + " - Specializarea: " + specializare + ", avand un numar de " + nrelevi + " elevi");
+                    textArea1.setText(String.valueOf(sb));
+                }
             }
         });
+    }
+    public static boolean isNumeric(String strNum) {
+        if (strNum == null) {
+            return false;
+        }
+        try {
+            double d = Double.parseDouble(strNum);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 }
