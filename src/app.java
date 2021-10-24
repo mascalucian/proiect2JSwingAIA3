@@ -22,9 +22,13 @@ public class app {
 
     public static void main(String[] args) {
         JFrame f = new JFrame();
+        f.setTitle("Proiect 2 - AIA3 - Masca Lucian");
         f.setSize(400,500);//400 width and 500 height
-        f.setLayout(null);//using no layout managers
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.setLocationRelativeTo(null);
         f.setVisible(true);//making the frame visible
+        f.setLayout(null);//using no layout managers
+
         f.pack();f.setContentPane(new app().RootPanel);
 
     }
@@ -38,8 +42,9 @@ public class app {
                 if(isNumeNumeric==false) {mesaj.setText("Eroare: Numarul clasei nu poate contine litere.");}
                 else if (isNreleviNumeric==false) {mesaj.setText("Eroare: Numarul de elevi nu poate contine litere.");}
                 else {
-                    Integer nr = Integer.getInteger(textField4.getText());
-                    clasee.add(new Clasa(textField1.getText(), textField2.getText(), textField3.getText(), nr));
+                    Integer nr = Integer.parseInt(textField4.getText());
+                    String nrString = nr.toString();
+                    clasee.add(new Clasa(textField1.getText(), textField2.getText(), textField3.getText(), nrString));
                     textField1.setText("");
                     textField2.setText("");
                     textField3.setText("");
